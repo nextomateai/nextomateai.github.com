@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nextomate - Staff Augmentation Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #1a3a6c;
+            --secondary: #2a5a8c;
+            --accent: #ff6b35;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --success: #28a745;
+            --teal: #20c997;
+        }
+        
+        body {
+            background-color: #f0f4f8;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo img {
+            height: 50px;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 58, 108, 0.9), rgba(26, 58, 108, 0.8)), url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 7rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .btn:hover {
+            background-color: #e05a2a;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+        }
+        
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            max-width: 700px;
+            margin: 1.5rem auto 0;
+            font-size: 1.2rem;
+            color: var(--gray);
+        }
+        
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .about-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+        }
+        
+        .about-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+        
+        .about-img {
+            height: 200px;
+            background: linear-gradient(45deg, var(--secondary), var(--teal));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+        
+        .about-content {
+            padding: 2rem;
+        }
+        
+        .about-content h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .about-content p {
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-item h4 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-item p {
+            color: var(--gray);
+            font-weight: 500;
+        }
+        
+        /* Services Section */
+        .services {
+            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            border-top: 4px solid var(--accent);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .service-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+        
+        .service-card p {
+            color: var(--gray);
+        }
+        
+        /* Delivery Models */
+        .models-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            justify-content: center;
+        }
+        
+        .model-card {
+            flex: 1;
+            min-width: 320px;
+            max-width: 380px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        
+        .model-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .model-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .model-body {
+            padding: 2rem;
+        }
+        
+        .model-body ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+        
+        .model-body li {
+            padding: 0.8rem 0;
+            border-bottom: 1px dashed #eee;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+        }
+        
+        .model-body li:last-child {
+            border-bottom: none;
+        }
+        
+        .model-body li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: bold;
+            min-width: 20px;
+        }
+        
+        .model-footer {
+            padding: 0 2rem 2rem;
+            text-align: center;
+        }
+        
+        /* Team Structure */
+        .org-chart {
+            display: flex;
+            justify-content: center;
+            margin-top: 3rem;
+        }
+        
+        .org-level {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 15px;
+        }
+        
+        .org-node {
+            background: white;
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            padding: 1.2rem;
+            text-align: center;
+            width: 180px;
+            margin: 10px 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+        
+        .org-node:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+            border-color: var(--accent);
+        }
+        
+        .org-node h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .org-node p {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        .connector {
+            height: 40px;
+            width: 2px;
+            background: var(--primary);
+            margin: 5px 0;
+        }
+        
+        /* Global Presence */
+        .locations {
+            background: linear-gradient(to bottom, #e9ecef, #f8f9fa);
+        }
+        
+        .map-container {
+            position: relative;
+            height: 500px;
+            background: url('https://images.unsplash.com/photo-1543804089995-033a844b618c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 2rem;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+        }
+        
+        .location-marker {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: var(--accent);
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(-45deg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .location-marker::after {
+            content: '';
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            background: white;
+            border-radius: 50%;
+            top: 8px;
+            left: 8px;
+        }
+        
+        .location-marker:hover {
+            transform: rotate(-45deg) scale(1.2);
+        }
+        
+        .location-info {
+            position: absolute;
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            max-width: 250px;
+            display: none;
+            z-index: 10;
+        }
+        
+        .toronto { top: 30%; left: 22%; }
+        .newyork { top: 40%; left: 25%; }
+        .la { top: 45%; left: 15%; }
+        .brazil { top: 65%; left: 32%; }
+        .noida { top: 45%; left: 70%; }
+        .pune { top: 55%; left: 68%; }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 5rem 2rem 2rem;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col li {
+            padding: 0.7rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .footer-col li:last-child {
+            border-bottom: none;
+        }
+        
+        .footer-col a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+        
+        .footer-col a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 3rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .hero {
+                padding: 5rem 2rem;
+            }
+            
+            section {
+                padding: 4rem 1.5rem;
+            }
+            
+            .org-chart {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .connector {
+                width: 40px;
+                height: 2px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <i class="fas fa-code fa-2x"></i>
+                <h1>Nextomate</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#models">Delivery Models</a></li>
+                    <li><a href="#global">Global Presence</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Designing Digital Products with an Automation-First Approach</h1>
+            <p>From startups to large enterprise companies</p>
+            <a href="#contact" class="btn">Get Started Today</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-container">
+            <div class="section-title">
+                <h2>About Nextomate</h2>
+                <p>A private incorporation with 45+ employees providing innovative software solutions</p>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-img">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <div class="about-content">
+                        <h3>Global Reach</h3>
+                        <p>With delivery centers across North and South America (USA, Canada and Brazil) and India (Noida and Pune), we provide comprehensive global coverage.</p>
+                    </div>
+                </div>
+                
+                <div class="about-card">
+                    <div class="about-img">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="about-content">
+                        <h3>Our People & Process</h3>
+                        <p>Our team of experts follows a streamlined process to deliver high-quality solutions with an automation-first approach.</p>
+                    </div>
+                </div>
+                
+                <div class="about-card">
+                    <div class="about-img">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="about-content">
+                        <h3>Innovation Culture</h3>
+                        <p>We foster a culture of creativity and continuous improvement to deliver cutting-edge solutions for our clients.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <h4>45+</h4>
+                    <p>Employees</p>
+                </div>
+                <div class="stat-item">
+                    <h4>5+</h4>
+                    <p>Global Locations</p>
+                </div>
+                <div class="stat-item">
+                    <h4>50+</h4>
+                    <p>Projects Delivered</p>
+                </div>
+                <div class="stat-item">
+                    <h4>100%</h4>
+                    <p>Client Satisfaction</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="section-container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>Comprehensive solutions tailored to your business needs</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Faster Talent Deployment</h3>
+                    <p>Reduce recruitment timelines from months to days with access to pre-vetted, experienced professionals.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </div>
+                    <h3>Scalable & Flexible</h3>
+                    <p>Easily scale resources up or down based on project demands while maintaining full control.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Cost Efficiency</h3>
+                    <p>Pay only for the talent you need, for the duration you need, while eliminating overhead costs.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Specialized Expertise</h3>
+                    <p>Quickly access niche skills and maintain project momentum with minimal onboarding time.</p>
+                </div>
+            </div>
+            
+            <div class="section-title" style="margin-top: 6rem;">
+                <h2>Product Lifecycle Management</h2>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>Product Transformation</h3>
+                    <p>Modernize your applications with our comprehensive transformation services.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <h3>Enhancements</h3>
+                    <p>Improve and optimize your existing products for better performance.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <h3>Migration to Cloud/SaaS</h3>
+                    <p>Seamlessly transition your applications to cloud-based solutions.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Analytics</h3>
+                    <p>Leverage data to gain insights and make informed business decisions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Delivery Models -->
+    <section id="models">
+        <div class="section-container">
+            <div class="section-title">
+                <h2>Delivery Models</h2>
+                <p>Flexible engagement options to suit your project requirements</p>
+            </div>
+            
+            <div class="models-container">
+                <div class="model-card">
+                    <div class="model-header">
+                        <h3>Option A</h3>
+                        <p>Nearshore Augmentation Model</p>
+                    </div>
+                    <div class="model-body">
+                        <ul>
+                            <li>Built to shadow CLIENT Teams' EST working hours</li>
+                            <li>Nearshore/onshore team based in Brazil/US/Canada</li>
+                            <li>Complete coverage from Pacific to East Coast</li>
+                            <li>Real-time collaboration on development and testing</li>
+                            <li>On-demand sync-ups with complete overlap</li>
+                        </ul>
+                    </div>
+                    <div class="model-footer">
+                        <a href="#contact" class="btn">Choose This Model</a>
+                    </div>
+                </div>
+                
+                <div class="model-card">
+                    <div class="model-header">
+                        <h3>Option B</h3>
+                        <p>Flexible Cost-Optimized Model</p>
+                    </div>
+                    <div class="model-body">
+                        <ul>
+                            <li>Hybrid model for cost-efficiency and time zone agility</li>
+                            <li>Leverages nearshore proximity for quick turnarounds</li>
+                            <li>Taps into offshore talent for on-demand scaling</li>
+                            <li>Maintains quality throughout deployment</li>
+                            <li>Global, responsive structure for 24/7 progress</li>
+                        </ul>
+                    </div>
+                    <div class="model-footer">
+                        <a href="#contact" class="btn">Choose This Model</a>
+                    </div>
+                </div>
+                
+                <div class="model-card">
+                    <div class="model-header">
+                        <h3>Option C</h3>
+                        <p>EST-Aligned Offshore Delivery</p>
+                    </div>
+                    <div class="model-body">
+                        <ul>
+                            <li>Complete offshore delivery from India centers</li>
+                            <li>Backed by global delivery experience</li>
+                            <li>Eliminates nearshore/onshore cost overhead</li>
+                            <li>Maintains daily alignment with EST hours</li>
+                            <li>Cost-effective, high-quality services</li>
+                        </ul>
+                    </div>
+                    <div class="model-footer">
+                        <a href="#contact" class="btn">Choose This Model</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Presence -->
+    <section id="global" class="locations">
+        <div class="section-container">
+            <div class="section-title">
+                <h2>Global Presence</h2>
+                <p>Our worldwide network of offices and delivery centers</p>
+            </div>
+            
+            <div class="map-container">
+                <div class="location-marker toronto" data-location="toronto"></div>
+                <div class="location-marker newyork" data-location="newyork"></div>
+                <div class="location-marker la" data-location="la"></div>
+                <div class="location-marker brazil" data-location="brazil"></div>
+                <div class="location-marker noida" data-location="noida"></div>
+                <div class="location-marker pune" data-location="pune"></div>
+                
+                <div id="location-info" class="location-info">
+                    <h4>Location Name</h4>
+                    <p>Location details and description</p>
+                </div>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 4rem;">
+                <div>
+                    <h3 style="color: var(--primary); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.7rem;">
+                        <i class="fas fa-building"></i> Sales & Support Offices
+                    </h3>
+                    <ul style="list-style: none;">
+                        <li style="padding: 1rem; background: white; border-radius: 8px; margin-bottom: 1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
+                            <i class="fas fa-map-marker-alt" style="color: var(--accent);"></i> 
+                            <strong>Los Angeles, CA</strong>
+                        </li>
+                        <li style="padding: 1rem; background: white; border-radius: 8px; margin-bottom: 1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
+                            <i class="fas fa-map-marker-alt" style="color: var(--accent);"></i> 
+                            <strong>Toronto, ON</strong>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 style="color: var(--primary); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.7rem;">
+                        <i class="fas fa-laptop-code"></i> Development Centers
+                    </h3>
+                    <ul style="list-style: none;">
+                        <li style="padding: 1rem; background: white; border-radius: 8px; margin-bottom: 1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
+                            <i class="fas fa-map-marker-alt" style="color: var(--accent);"></i> 
+                            <strong>Offshore:</strong> Pune and Noida
+                        </li>
+                        <li style="padding: 1rem; background: white; border-radius: 8px; margin-bottom: 1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
+                            <i class="fas fa-map-marker-alt" style="color: var(--accent);"></i> 
+                            <strong>Nearshore:</strong> Brazil
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background: linear-gradient(rgba(26, 58, 108, 0.9), rgba(26, 58, 108, 0.8)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); background-size: cover; color: white;">
+        <div class="section-container">
+            <div class="section-title">
+                <h2 style="color: white;">Contact Us</h2>
+                <p style="color: rgba(255,255,255,0.8);">Reach out to discuss how we can support your team</p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; max-width: 1000px; margin: 0 auto;">
+                <div>
+                    <h3 style="margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.7rem;"><i class="fas fa-envelope"></i> Get In Touch</h3>
+                    <p style="margin-bottom: 2rem;">Have questions about our services or delivery models? Contact us today for a consultation.</p>
+                    
+                    <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px;">
+                        <p style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.7rem;">
+                            <i class="fas fa-envelope"></i> contact@nextomate.com
+                        </p>
+                        <p style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.7rem;">
+                            <i class="fas fa-phone"></i> +1 (437) 849-2480
+                        </p>
+                        <p style="display: flex; align-items: center; gap: 0.7rem;">
+                            <i class="fas fa-globe"></i> www.nextomate.com
+                        </p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 style="margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.7rem;"><i class="fas fa-paper-plane"></i> Send a Message</h3>
+                    <form style="display: grid; gap: 1.2rem;">
+                        <input type="text" placeholder="Your Name" style="padding: 1rem; border-radius: 4px; border: none; background: rgba(255,255,255,0.9);">
+                        <input type="email" placeholder="Your Email" style="padding: 1rem; border-radius: 4px; border: none; background: rgba(255,255,255,0.9);">
+                        <textarea placeholder="Your Message" rows="4" style="padding: 1rem; border-radius: 4px; border: none; background: rgba(255,255,255,0.9);"></textarea>
+                        <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>Nextomate</h3>
+                <p>Designing Digital Products with an Automation-First Approach. From startups to large enterprise companies.</p>
+                <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                    <a href="#"><i class="fab fa-linkedin fa-lg"></i></a>
+                    <a href="#"><i class="fab fa-twitter fa-lg"></i></a>
+                    <a href="#"><i class="fab fa-facebook fa-lg"></i></a>
+                    <a href="#"><i class="fab fa-instagram fa-lg"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Staff Augmentation</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Product Development</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Product Transformation</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Cloud Migration</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Analytics Solutions</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Delivery Centers</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> Pune, India</a></li>
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> Noida, India</a></li>
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> Toronto, Canada</a></li>
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> Los Angeles, USA</a></li>
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> Brazil</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="#services"><i class="fas fa-chevron-right"></i> Our Services</a></li>
+                    <li><a href="#models"><i class="fas fa-chevron-right"></i> Delivery Models</a></li>
+                    <li><a href="#global"><i class="fas fa-chevron-right"></i> Global Presence</a></li>
+                    <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 Nextomate Inc. All rights reserved. | Designed with <i class="fas fa-heart" style="color: var(--accent);"></i></p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation for location markers
+        document.querySelectorAll('.location-marker').forEach(marker => {
+            marker.addEventListener('click', function() {
+                const location = this.getAttribute('data-location');
+                const infoBox = document.getElementById('location-info');
+                
+                // Position the info box near the marker
+                const rect = this.getBoundingClientRect();
+                infoBox.style.top = (rect.top - 100) + 'px';
+                infoBox.style.left = (rect.left + 40) + 'px';
+                
+                // Update content based on location
+                switch(location) {
+                    case 'toronto':
+                        infoBox.innerHTML = '<h4>Toronto, ON</h4><p>Sales & Support Office</p>';
+                        break;
+                    case 'newyork':
+                        infoBox.innerHTML = '<h4>New York</h4><p>Business Development</p>';
+                        break;
+                    case 'la':
+                        infoBox.innerHTML = '<h4>Los Angeles, CA</h4><p>Sales & Support Office</p>';
+                        break;
+                    case 'brazil':
+                        infoBox.innerHTML = '<h4>Brazil</h4><p>Nearshore Development Center</p>';
+                        break;
+                    case 'noida':
+                        infoBox.innerHTML = '<h4>Noida/Delhi</h4><p>Offshore Development Center</p>';
+                        break;
+                    case 'pune':
+                        infoBox.innerHTML = '<h4>Pune</h4><p>Offshore Development Center</p>';
+                        break;
+                }
+                
+                infoBox.style.display = 'block';
+            });
+        });
+        
+        // Close info box when clicking elsewhere
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.location-marker') && !e.target.closest('.location-info')) {
+                document.getElementById('location-info').style.display = 'none';
+            }
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
